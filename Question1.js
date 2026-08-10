@@ -21,3 +21,18 @@ const orders = [
   orders: [...]
 }
   */
+
+function calcOrders(orders) {
+  let totalOrders = 0;
+  let totalAmount = 0;
+  const completedOrders = orders.filter(order => order.status === "completed").sort((a, b) => b.total - a.total);
+  for(order of completedOrders) {
+    totalAmount += order.total;
+    totalOrders++;
+  }
+  return {
+    totalOrders,
+    totalAmount,
+    orders: completedOrders
+  };
+}
