@@ -6,3 +6,11 @@ const users = [
   ];
 
 //  اكتب دالة تستقبل رقم المستخدم وتقوم بإرجاع بياناته.
+
+function userInfo(users, userId) {
+  const searchedUser = users.find(user => userId === user.id);
+  if(!searchedUser) {
+    return null;
+  }
+  return searchedUser;
+}
