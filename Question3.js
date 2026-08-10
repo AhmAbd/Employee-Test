@@ -1,18 +1,24 @@
 
+const orderStatusList = {
+    completed: "Completed",
+    pending: "Pending",
+    cancelled: "Cancelled",
+    refunded: "Refunded",
+    shipped: "Shipped"
+}
+const types = [
+    ["Regular", 1],
+    ["VIP", 100],
+    ["Enterprise", 1000]
+]
 function processOrder(order) {
-
-    if (order.total > 100) {
-        console.log("VIP");
+    for(let i=types.length-1; i>=0; i--) {
+        if(order.total >= types[i][1]) {
+            console.log(types[i][0]);
+            break;
+        }
     }
-
-    if (order.status == "completed") {
-        console.log("Completed");
-    }
-
-    if (order.status == "pending") {
-        console.log("Pending");
-    }
-
+    console.log(orderStatusList[order.status]);
 }
 
 /*
